@@ -206,7 +206,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <div
         className={cn(
           "md:hidden overflow-hidden transition-all duration-300",
@@ -231,7 +230,6 @@ export function Navbar() {
             </NavLink>
           ))}
 
-          {/* mobile polished row */}
           <div className="flex items-center justify-end gap-2 mt-3">
             <GlassButton variant="primary" onClick={handlePlay}>
               {t("playNow")}
@@ -240,7 +238,6 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Inline keyframes for subtle animations (works without modifying Tailwind config) */}
       <style>{`
         @keyframes nav-play-glow {
           0% { transform: rotate(0deg) scale(1); opacity: 0.58; }
