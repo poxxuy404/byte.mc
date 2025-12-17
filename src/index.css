@@ -8,49 +8,54 @@
 
 @layer base {
   :root {
-    --background: 30 5% 96%;
-    --foreground: 30 10% 15%;
+    --background: 30 25% 94%;
+    --foreground: 30 25% 5%;
 
-    --card: 30 5% 92%;
-    --card-foreground: 30 10% 15%;
+    --card: 30 12% 86%;
+    --card-foreground: 30 25% 8%;
 
-    --popover: 30 5% 94%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 30 15% 89%;
+    --popover-foreground: 30 25% 5%;
 
-    --primary: 38 70% 50%;
-    --primary-foreground: 30 10% 5%;
+    --primary: 38 75% 42%;
+    --primary-foreground: 30 10% 98%;
 
-    --secondary: 30 5% 88%;
-    --secondary-foreground: 30 10% 20%;
+    --secondary: 30 18% 72%;
+    --secondary-foreground: 30 25% 12%;
 
-    --muted: 30 5% 85%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 30 12% 68%;
+    --muted-foreground: 30 15% 32%;
 
-    --accent: 38 60% 55%;
-    --accent-foreground: 30 10% 5%;
+    --accent: 38 65% 45%;
+    --accent-foreground: 30 10% 98%;
 
-    --destructive: 0 60% 50%;
+    --destructive: 0 65% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 8% 80%;
-    --input: 30 8% 82%;
-    --ring: 38 70% 50%;
+    --border: 30 18% 76%;
+    --input: 30 18% 82%;
+    --ring: 38 75% 42%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 30 5% 94%;
-    --sidebar-foreground: 30 10% 25%;
-    --sidebar-primary: 38 70% 50%;
-    --sidebar-primary-foreground: 30 10% 5%;
-    --sidebar-accent: 30 5% 90%;
-    --sidebar-accent-foreground: 30 10% 20%;
-    --sidebar-border: 30 8% 80%;
-    --sidebar-ring: 38 70% 50%;
+    --sidebar-background: 30 15% 88%;
+    --sidebar-foreground: 30 25% 10%;
+    --sidebar-primary: 38 75% 42%;
+    --sidebar-primary-foreground: 30 10% 98%;
+    --sidebar-accent: 30 18% 80%;
+    --sidebar-accent-foreground: 30 25% 12%;
+    --sidebar-border: 30 18% 76%;
+    --sidebar-ring: 38 75% 42%;
 
-    /* Custom tokens */
-    --glass: 30 5% 100% / 0.6;
-    --glass-border: 30 8% 70% / 0.3;
-    --glow: 38 70% 50% / 0.3;
+    /* Custom tokens - Light shadows */
+    --glass: 30 18% 96% / 0.75;
+    --glass-border: 30 15% 55% / 0.4;
+    --glow: 38 75% 42% / 0.25;
+    --shadow-sm: 0 1px 2px rgba(70, 40, 20, 0.06);
+    --shadow-md: 0 4px 8px rgba(70, 40, 20, 0.1), 0 2px 4px rgba(70, 40, 20, 0.05);
+    --shadow-lg: 0 10px 20px rgba(70, 40, 20, 0.12), 0 4px 8px rgba(70, 40, 20, 0.08);
+    --shadow-xl: 0 20px 40px rgba(70, 40, 20, 0.15), 0 8px 16px rgba(70, 40, 20, 0.1);
+    --shadow-2xl: 0 25px 50px rgba(70, 40, 20, 0.18);
   }
 
   .dark {
@@ -105,6 +110,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    box-shadow: inset 0 0 0 1px hsl(var(--border));
   }
 
   html {
@@ -112,17 +118,43 @@
   }
 }
 
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+}
+
 @layer utilities {
   .glass {
-    @apply bg-[hsl(var(--glass))] backdrop-blur-md border border-[hsl(var(--glass-border))];
+    @apply bg-[hsl(var(--glass))] backdrop-blur-md border border-[hsl(var(--glass-border))] shadow-[var(--shadow-md)];
   }
 
   .glass-button {
-    @apply glass hover:bg-[hsl(var(--glass))] transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--glow))];
+    @apply glass hover:bg-[hsl(var(--glass))] transition-all duration-300 hover:shadow-[0_0_25px_hsl(var(--glow))] hover:border-primary/40;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply bg-card shadow-[var(--shadow-md)] rounded-lg border border-[hsl(var(--border))];
+  }
+
+  .card-elevated {
+    @apply bg-card shadow-[var(--shadow-lg)] rounded-lg border border-[hsl(var(--border))];
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-[var(--shadow-xl)] hover:border-primary/30;
+  }
+
+  .button-primary {
+    @apply bg-primary text-primary-foreground shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-all duration-300;
   }
 
   .animate-fade-up {
@@ -154,6 +186,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -165,6 +198,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

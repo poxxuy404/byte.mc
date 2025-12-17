@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Sun, Moon, Sparkles } from "lucide-react";
 import { GlassButton } from "@/components/ui/glass-button";
+import { useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -15,16 +16,12 @@ const navLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [currentLang, setCurrentLang] = useState<"uz" | "ru">("uz");
   const location = useLocation();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,14 +40,6 @@ export function Navbar() {
     const lang = i18n.language?.startsWith("ru") ? "ru" : "uz";
     setCurrentLang(lang);
   }, [i18n.language]);
-
-  const toggleTheme = () => {
-    setIsDark((prev) => {
-      const next = !prev;
-      document.documentElement.classList.toggle("dark", next);
-      return next;
-    });
-  };
 
   const changeLang = (lang: "uz" | "ru") => {
     setCurrentLang(lang);
@@ -101,10 +90,10 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            aria-label={isDark ? "Light mode" : "Dark mode"}
-            title={isDark ? "Light mode" : "Dark mode"}
+            aria-label={theme === "dark" ? "Light mode" : "Dark mode"}
+            title={theme === "dark" ? "Light mode" : "Dark mode"}
           >
-            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </GlassButton>
 
           {/* Polished language pills + animated Play */}
@@ -178,9 +167,9 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            aria-label={isDark ? "Light mode" : "Dark mode"}
+            aria-label={theme === "dark" ? "Light mode" : "Dark mode"}
           >
-            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </GlassButton>
 
           {/* compact language buttons on mobile */}
