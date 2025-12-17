@@ -1,9 +1,11 @@
 import { GlassButton } from "@/components/ui/glass-button";
 import { Copy, Users, Gamepad2, Shield } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export function HeroSection() {
   const [copied, setCopied] = useState(false);
+  const { t } = useTranslation();
 
   const copyIP = () => {
     navigator.clipboard.writeText("bytemc.uz");
@@ -26,18 +28,17 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-fade-up">
             <span className="inline-block glass px-4 py-2 rounded-full text-sm font-display font-semibold text-primary mb-6">
-              🎮 Premium Minecraft Server
+              {t("hero.badge")}
             </span>
           </div>
 
           <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 animate-fade-up-delay-1">
-            Welcome to{" "}
+            {t("hero.title")}{" "}
             <span className="text-gradient">BYTEMC.UZ</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-up-delay-2">
-            Experience the ultimate Minecraft adventure. Unique game modes, active
-            community, and premium features await you.
+            {t("hero.description")}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up-delay-3">
@@ -48,27 +49,27 @@ export function HeroSection() {
               className="min-w-48"
             >
               <Copy className="h-5 w-5" />
-              {copied ? "Copied!" : "Copy Server IP"}
+              {copied ? t("common.copied") : t("hero.copyIP")}
             </GlassButton>
             <GlassButton variant="default" size="lg" className="min-w-48">
               <Gamepad2 className="h-5 w-5" />
-              View Game Modes
+              {t("hero.viewModes")}
             </GlassButton>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-16 animate-fade-up-delay-3">
             {[
-              { icon: Users, value: "2025+", label: "Players" },
-              { icon: Gamepad2, value: "12+", label: "Game Modes" },
-              { icon: Shield, value: "24/7", label: "Online" },
+              { icon: Users, value: "2025+", labelKey: "hero.stats.players" },
+              { icon: Gamepad2, value: "12+", labelKey: "hero.stats.modes" },
+              { icon: Shield, value: "24/7", labelKey: "hero.stats.online" },
             ].map((stat, i) => (
               <div key={i} className="glass rounded-xl p-6 text-center">
                 <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
                 <div className="font-display text-2xl md:text-3xl font-bold text-foreground">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">{t(stat.labelKey)}</div>
               </div>
             ))}
           </div>

@@ -1,0 +1,235 @@
+{
+  "brand": "BYTEMC.UZ",
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "prices": "Narxlar",
+    "admins": "Ma'murlar",
+    "faq": "Savollar"
+  },
+  "playNow": "Hozir o'ynash",
+  "common": {
+    "copied": "Nusxa olindi!"
+  },
+  "notFound": {
+    "message": "Sahifa topilmadi",
+    "returnHome": "Bosh sahifaga qaytish"
+  },
+  "hero": {
+    "badge": "🎮 Premium Minecraft Server",
+    "title": "Xush kelibsiz",
+    "description": "Ultimate Minecraft majohasini batafsil. O'ziga xos o'yin rejimlar, faol jamoa va premium xususiyatlar sizni kutmoqda.",
+    "copyIP": "Server IP-ni nusxa olish",
+    "viewModes": "O'yin rejimlarini ko'rish",
+    "stats": {
+      "players": "O'yinchilar",
+      "modes": "O'yin rejimlar",
+      "online": "Onlayn"
+    }
+  },
+  "features": {
+    "titleStart": "Nega tanlash",
+    "description": "Biz premium xususiyatlar va ixtisoslashgan qo'llab-quvvatllash bilan eng yaxshi Minecraft tajribasini taqdim etamiz.",
+    "boxpvp": {
+      "title": "BoxPVP",
+      "description": "Intense player vs player combat with unique kits and rewards."
+    },
+    "survival": {
+      "title": "Survival",
+      "description": "Classic survival experience with custom plugins and events."
+    },
+    "community": {
+      "title": "Faol Jamoa",
+      "description": "Minglab o'yinchilarni qo'shiling va yangi do'stlar qiling."
+    },
+    "latency": {
+      "title": "Kam Kechikish",
+      "description": "Optimized servers for smooth gameplay experience."
+    },
+    "ranking": {
+      "title": "Reytinglar",
+      "description": "Climb the ranks and unlock exclusive perks."
+    },
+    "fairplay": {
+      "title": "Adil o'yin",
+      "description": "Anti-cheat systems to ensure fair competition."
+    }
+  },
+  "cta": {
+    "badge": "Boshlashga tayyormi?",
+    "titleStart": "Bugun",
+    "titleHighlight": "Sarguzashtga",
+    "titleEnd": "qo'shiling",
+    "description": "Minglab o'yinchilar allaqachon ByteMC-dan rohatlanmoqda. Zavqdan chetda qolmang — bugun o'z sayohatingizni boshlang!",
+    "viewPrices": "Narxlarni ko'rish",
+    "joinDiscord": "Discord-ga qo'shiling"
+  },
+  "prices": {
+    "premiumRanks": "Premium Ranglar",
+    "titleStart": "Bizning",
+    "titleHighlight": "Narxlar",
+    "description": "O'ynash uslubingizga mos keluvchi rangni tanlang. Barcha ranglar eksklyuziv imkoniyatlarni o'z ichiga oladi.",
+    "note": "Eslatma: Ushbu narxlar faqat ma'lumot uchun — saytdan sotib olish mavjud emas.",
+    "exchangeRate": "💵 1,000 ByteCoin = 2,000 UZS",
+    "popular": "Mashhur",
+    "infoOnly": "Faqat ma'lumot uchun",
+    "paymentTitle": "To'lov usullari",
+    "paymentDescription": "Quyidagi to'lov usullarini qabul qilamiz."
+  },
+  "categories": {
+    "survival": "Survival 1-2-3-4",
+    "ranks": "Ranglar",
+    "boxpvp": "BoxPVP"
+  },
+  "durations": {
+    "1m": "1 oy",
+    "3m": "3 oy",
+    "6m": "6 oy",
+    "1y": "1 yil"
+  },
+  "features": {
+    "exclusiveKit": "Eksklyuziv to'plam",
+    "customPrefix": "Maxsus prefiks",
+    "prioritySupport": "Ustuvor qo'llab-quvvatlash",
+    "specialCommands": "Maxsus buyruqlar"
+  },
+  "payment": {
+    "Payme": "Payme",
+    "Click": "Click",
+    "Uzcard": "Uzcard",
+    "Humo": "Humo"
+  },
+  "footer": {
+    "description": "Premium Minecraft server experience with unique gameplay modes, active community, and dedicated staff. Join thousands of players today.",
+    "quickLinks": "Tez oralik",
+    "connect": "Bog'lanish",
+    "server": "Server",
+    "discord": "Discord",
+    "telegram": "Telegram",
+    "copyright": "Barcha huquqlar himoyalangan"
+  },
+  "about": {
+    "hero": {
+      "badge": "Bizning qisssasi",
+      "titleStart": "Haqida",
+      "description": "ByteMC.uz oddiy maqsad bilan asos solingan: Oʻzbekiston va undan tashqari o'yinchilar uchun eng yaxshi Minecraft server tajribasini taqdim etish. Ochilgan kundan beri biz mintaqadagi eng mashhur serverllardan biriga aylandi."
+    },
+    "stats": {
+      "founded": "Asos solingan",
+      "players": "O'yinchilar",
+      "uptime": "Ishlash vaqti",
+      "support": "Qo'llab-quvvatlash"
+    },
+    "values": {
+      "titleStart": "Bizning",
+      "titleHighlight": "Qadriyatlar",
+      "mission": {
+        "title": "Bizning Maqsad",
+        "description": "Markaziy Osiyoda o'yinchilar uchun eng jozibador va adolatli Minecraft tajribasini yaratish."
+      },
+      "community": {
+        "title": "Jamoa birinchi",
+        "description": "Qabul qilgan har bir qaror o'yinchilarimizning tajribasi va zavqini birinchi o'ringa qo'yadi."
+      },
+      "innovation": {
+        "title": "Innovatsiya",
+        "description": "Doimiy yangi xususiyatlarni qo'shib, o'yin mazoasi saridon va qiziqarli bo'lib qolsin."
+      },
+      "fairplay": {
+        "title": "Adolatli o'yin",
+        "description": "Strict anti-cheat va faol moderatsiya adolatli raqobatni ta'minlaydi."
+      }
+    },
+    "journey": {
+      "titleStart": "Bizning",
+      "titleHighlight": "Yo'nalishi",
+      "events": {
+        "0": {
+          "date": "2023 yil yanvar",
+          "title": "Server ishga tushdi",
+          "description": "ByteMC.uz Survival rejimi bilan rasmiy ravishda ishga tushdi."
+        },
+        "1": {
+          "date": "2023 yil mart",
+          "title": "BoxPVP Qo'shildi",
+          "description": "Bizning mashhur BoxPVP o'yin rejimini taqdim etdik."
+        },
+        "2": {
+          "date": "2023 yil iyun",
+          "title": "1000 O'yinchilar",
+          "description": "1000 ro'yxatdan o'tgan o'yinchilar bo'yi birinchi cho'ngi nuqtamizga eristik."
+        },
+        "3": {
+          "date": "2024",
+          "title": "2025+ O'yinchilar",
+          "description": "Oʻzbekistanda etakchi Minecraft server bo'ldi."
+        }
+      }
+    }
+  },
+  "faq": {
+    "hero": {
+      "badge": "Savoli bor?",
+      "titleStart": "Tez-tez Soraladigan",
+      "titleHighlight": "Savollar",
+      "description": "ByteMC haqidagi umumiy savollarga javoblarni toping. Izlayotgan narsani topa olmadingizmi? Discord-imizga qo'shiling!"
+    },
+    "0": {
+      "question": "Server-ga qanday qo'shilaman?",
+      "answer": "Minecraft Java yoki Bedrock Edition-ni oching, Multiplayer-ga o'ting va bizning server manzilini qo'shing: bytemc.uz. Qo'llab-quvvatlanuvchi versiyadan foydalanayotganingizga ishonch hosil qiling."
+    },
+    "1": {
+      "question": "Qaysi Minecraft versiyalari qo'llab-quvvatlanadi?",
+      "answer": "Biz Minecraft Java Edition 1.8-1.20+ va Bedrock Edition-ni qo'llab-quvvatlaymiz. Tavsiyalangan versiya eng yaxshi tajriba uchun 1.20 dir."
+    },
+    "2": {
+      "question": "Darajani qanday sotib olaman?",
+      "answer": "Bizning Narxlar sahifasini ziyarat qiling va xohlagan darajani tanlang. Payme, Click va Uzcard shu jumladan turli usullar orqali to'lov qilishingiz mumkin."
+    },
+    "3": {
+      "question": "Darajamni boshqa hisob-raqamga o'tkazish mumkinmi?",
+      "answer": "Darajaning o'tkazilishi ishbu ishda hal qilinadi. Yordamga Discord orqali qo'llab-quvvatlash jamoamizga bog'laning."
+    },
+    "4": {
+      "question": "Men ban bo'lsam nima bo'ladi?",
+      "answer": "Agar siz ban-ni adolatsiz deb hisoblasangiz, Discord server-imiz orqali arizani topshirishingiz mumkin. Barcha arizalar senior xodimlar tomonidan ko'rib chiqiladi."
+    },
+    "5": {
+      "question": "Amal qilish kerak bo'lgan qoidalar bormi?",
+      "answer": "Ha! Biz adolatli o'yin va ijobiy tajriba ta'minlash uchun server qoidalariga egamiz. Hech hacking yo'q, spam yo'q, hurmatli bo'ling. To'liq ro'yxat uchun o'yinda /rules ni tekshiring."
+    },
+    "6": {
+      "question": "Men xodim bo'lishim mumkinmi?",
+      "answer": "Xodim ariza-davomlar davriy ravishda ochiladi. Discord e'lonlari uchun Discord-ni kuzatib boring. Biz faol, foydali jamoa a'zolarini qidiramiz."
+    },
+    "7": {
+      "question": "Server 24/7 onlaynda mi?",
+      "answer": "Ha! Bizning serverlari 24/7 99.99% ishlash vaqti bilan ixtisoslashgan infratuzilmada joylashgan. Rejalashtirilgan texnik xizmat oldindan e'lon qilinadi."
+    },
+    "8": {
+      "question": "Siz qaysi to'lov usullarini qabul qilasiz?",
+      "answer": "Biz Payme, Click, Uzcard va xalqaro to'lov usullarini qabul qilamiz. Barcha tranzaksiyalar xavfsiz."
+    },
+    "9": {
+      "question": "O'yinchinni qanday hisobot qilaman?",
+      "answer": "O'yinda /report ishlatish yoki Discord orqali xodimlarga aloqa qiling (skrinshot/videolar bilan isbot)."
+    }
+  },
+  "admins": {
+    "meetTeam": "Jamoa bilan tanishing",
+    "titleStart": "Bizning",
+    "titleHighlight": "Jamoa",
+    "description": "ByteMC jamoasi sizning uchun 24/7 ishlaydi — bizni tanlaganingiz uchun rahmat.",
+    "categories": {
+      "owners": "Egalar",
+      "administrators": "Administratorlar",
+      "moderators": "Moderatorlar",
+      "helpers": "Yordamchilar"
+    },
+    "cta": {
+      "title": "Jamoaga qo'shilmoqchimisiz?",
+      "description": "Biz doimo sodiq o'yinchilarni izlaymiz. Xodimlarga arizalar Discord orqali amalga oshiriladi.",
+      "apply": "Discord orqali ariza yuborish"
+    }
+  }
+}
