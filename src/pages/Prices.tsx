@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { GlassButton } from "@/components/ui/glass-button";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Crown, Shield, Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 type Category = "survival" | "boxpvp" | "ranks";
@@ -227,37 +227,60 @@ const Prices = () => {
   ];
   const [selectedDur, setSelectedDur] = useState<string>("1m");
 
+  const categoryIcons = {
+    survival: Shield,
+    ranks: Crown,
+    boxpvp: Zap,
+  };
+
   return (
     <Layout>
-      <section className="py-24">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-glow/20 rounded-full blur-3xl animate-float-delayed"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12 animate-fade-up">
-            <span className="inline-block glass px-4 py-2 rounded-full text-sm font-display font-semibold text-primary mb-6">
+            <span className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm font-display font-semibold text-primary mb-6 hover:scale-105 transition-transform duration-300">
+              <Sparkles className="w-4 h-4 animate-pulse" />
               {t("prices.premiumRanks")}
             </span>
             <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-              {t("prices.titleStart")} <span className="text-gradient">{t("prices.titleHighlight")}</span>
+              {t("prices.titleStart")} <span className="text-gradient animate-gradient">{t("prices.titleHighlight")}</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t("prices.description")}</p>
           </div>
 
-          {/* NOTE: informational-only banner */}
-          <div className="glass rounded-xl p-4 mb-8 max-w-md mx-auto text-center animate-fade-up-delay-1">
-            <p className="font-display font-semibold text-foreground">{t("prices.note")}</p>
-          </div>
-
-          {/* Exchange Rate */}
-          <div className="glass rounded-xl p-4 mb-8 max-w-md mx-auto text-center animate-fade-up-delay-1">
-            <p className="font-display font-semibold text-foreground">{t("prices.exchangeRate")}</p>
+          {/* Info Banners */}
+          <div className="max-w-md mx-auto mb-12 space-y-4 animate-fade-up-delay-1">
+            <div className="glass rounded-xl p-4 text-center hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-primary/10">
+              <p className="font-display font-semibold text-foreground">{t("prices.note")}</p>
+            </div>
+            <div className="glass rounded-xl p-4 text-center hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-glow/10">
+              <p className="font-display font-semibold text-foreground">{t("prices.exchangeRate")}</p>
+            </div>
           </div>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8 animate-fade-up-delay-1">
-            {categories.map((cat) => (
-              <GlassButton key={cat} variant={activeCategory === cat ? "primary" : "default"} onClick={() => setActiveCategory(cat)}>
-                {t(`categories.${cat}`)}
-              </GlassButton>
-            ))}
+          <div className="flex flex-wrap justify-center gap-3 mb-8 animate-fade-up-delay-1">
+            {categories.map((cat) => {
+              const Icon = categoryIcons[cat];
+              return (
+                <GlassButton
+                  key={cat}
+                  variant={activeCategory === cat ? "primary" : "default"}
+                  onClick={() => setActiveCategory(cat)}
+                  className="group hover:scale-105 transition-all duration-300"
+                >
+                  <Icon className="w-4 h-4 mr-2 inline-block group-hover:rotate-12 transition-transform duration-300" />
+                  {t(`categories.${cat}`)}
+                </GlassButton>
+              );
+            })}
           </div>
 
           {/* Duration Filter */}
@@ -267,8 +290,10 @@ const Prices = () => {
                 key={d.id}
                 onClick={() => setSelectedDur(d.id)}
                 className={cn(
-                  "px-4 py-2 rounded-lg font-display text-sm font-semibold transition-all duration-300",
-                  selectedDur === d.id ? "bg-primary/20 text-primary" : "text-muted-foreground hover:text-foreground"
+                  "px-6 py-2.5 rounded-lg font-display text-sm font-semibold transition-all duration-300 hover:scale-105",
+                  selectedDur === d.id
+                    ? "bg-primary/20 text-primary shadow-lg shadow-primary/20"
+                    : "text-muted-foreground hover:text-foreground glass"
                 )}
               >
                 {t(d.labelKey)}
@@ -282,19 +307,34 @@ const Prices = () => {
               const selectedPrice = rank.prices.find((p) => p.duration === selectedDur);
 
               return (
-                <div key={index} className={cn("glass rounded-xl p-6 relative transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--glow))]", rank.popular && "ring-2 ring-primary")}>
+                <div
+                  key={index}
+                  className={cn(
+                    "glass rounded-2xl p-6 relative transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_hsl(var(--glow))] group",
+                    rank.popular && "ring-2 ring-primary shadow-lg shadow-primary/20"
+                  )}
+                  style={{
+                    animation: `fadeInUp 0.6s ease-out ${index * 0.08}s both`
+                  }}
+                >
                   {rank.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-display font-bold">
-                        <Sparkles className="h-3 w-3" />
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 animate-bounce-slow">
+                      <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-display font-bold shadow-lg">
+                        <Sparkles className="h-3 w-3 animate-pulse" />
                         {t("prices.popular")}
                       </span>
                     </div>
                   )}
 
+                  {/* Icon with 3D effect */}
+                  <div className="mb-5 flex justify-center perspective-1000">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-glow flex items-center justify-center shadow-xl transform group-hover:scale-110 group-hover:rotate-y-12 transition-all duration-500">
+                      <Crown className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
                   <div className="text-center mb-6">
-                    <h3 className="font-display text-2xl font-bold text-gradient mb-2">{rank.name}</h3>
-                    <div className="font-display text-3xl font-bold text-foreground">{selectedPrice?.price}</div>
+                    <h3 className="font-display text-2xl font-bold text-gradient mb-2 group-hover:scale-105 transition-transform duration-300">{rank.name}</h3>
+                    <div className="font-display text-4xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">{selectedPrice?.price}</div>
                     <p className="text-muted-foreground text-sm">{t(`durations.${selectedDur}`)}</p>
                   </div>
 
@@ -305,16 +345,28 @@ const Prices = () => {
                       "features.prioritySupport",
                       "features.specialCommands",
                     ].map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary" />
-                        <span className="text-muted-foreground">{t(feature)}</span>
+                      <li
+                        key={i}
+                        className="flex items-center gap-2 text-sm group/item"
+                        style={{
+                          animation: `slideInLeft 0.4s ease-out ${0.1 * i}s both`
+                        }}
+                      >
+                        <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-primary/30 group-hover/item:scale-110 transition-all duration-300">
+                          <Check className="h-3 w-3 text-primary" />
+                        </div>
+                        <span className="text-muted-foreground group-hover/item:text-foreground transition-colors duration-300">{t(feature)}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* Disabled / informational button - not for purchase */}
-                  <GlassButton variant={rank.popular ? "primary" : "default"} className="w-full opacity-70 pointer-events-none cursor-not-allowed" aria-disabled tabIndex={-1}>
-                    {t("prices.infoOnly")}
+                  <GlassButton
+                    variant={rank.popular ? "primary" : "default"}
+                    className="w-full opacity-70 pointer-events-none cursor-not-allowed relative overflow-hidden"
+                    aria-disabled
+                    tabIndex={-1}
+                  >
+                    <span className="relative z-10">{t("prices.infoOnly")}</span>
                   </GlassButton>
                 </div>
               );
@@ -322,17 +374,118 @@ const Prices = () => {
           </div>
 
           {/* Payment Info */}
-          <div className="mt-16 glass rounded-2xl p-8 text-center max-w-3xl mx-auto">
-            <h3 className="font-display text-2xl font-bold mb-4">{t("prices.paymentTitle")}</h3>
+          <div className="mt-16 glass rounded-2xl p-8 text-center max-w-3xl mx-auto hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border border-primary/10">
+            <h3 className="font-display text-2xl font-bold mb-4 text-gradient">{t("prices.paymentTitle")}</h3>
             <p className="text-muted-foreground mb-6">{t("prices.paymentDescription")}</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {["Payme", "Click", "Uzcard", "Humo"].map((method) => (
-                <span key={method} className="glass px-4 py-2 rounded-lg text-sm font-display font-semibold">{t(`payment.${method}`)}</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {["Payme", "Click", "Uzcard", "Humo"].map((method, i) => (
+                <div
+                  key={method}
+                  className="glass px-4 py-3 rounded-xl text-sm font-display font-semibold hover:scale-110 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group"
+                  style={{
+                    animation: `fadeInUp 0.5s ease-out ${0.1 * i}s both`
+                  }}
+                >
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-glow mx-auto mb-2 flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span className="text-lg font-black text-primary-foreground">{method[0]}</span>
+                  </div>
+                  {t(`payment.${method}`)}
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+
+        @keyframes pulse-slow {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+          animation: float 6s ease-in-out infinite;
+          animation-delay: 2s;
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        .animate-bounce-slow {
+          animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-5px);
+          }
+        }
+
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+
+        .rotate-y-12 {
+          transform: rotateY(12deg);
+        }
+      `}</style>
     </Layout>
   );
 };
